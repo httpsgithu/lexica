@@ -9,7 +9,6 @@
     <string name="pref_boardSize">Dimensioni della tavola</string>
     <string name="pref_timeLimit">Limite di tempo</string>
     <string name="pref_sounds">Suoni abilitati</string>
-    <string name="pref_sounds_summary">Se i suoni sono abilitati oppure no</string>
     <string name="dialog_about_title">Informazioni su Lexica</string>
     <string name="pref_dict">Lessico</string>
     <string name="dialog_about_content">Tocca lo schermo e traccia col dito per scrivere le parole. Puoi passare da una casella ad un\'altra adiacente in verticale, orizzontale o diagonale. Hai tre minuti per trovare più parole che puoi.
@@ -61,13 +60,12 @@
     <string name="reset_scores_prompt">Sei sicuro/a di voler resettare tutti i punteggi migliori per tutte le modalità di gioco\?</string>
     <string name="high_scores_reset">I punteggi migliori sono stati resettati.</string>
     <string name="pref_resetScores">Resetta i punteggi migliori</string>
-    <string name="pref_resetScores_summary">I punteggi migliori vengono tracciati per ogni combinazione delle impostazioni di cui sopra. Tocca per ripristinare tutti i punteggi a zero.</string>
     <string name="pref_breakdown_summary">Se il contatore di parole mostri i conteggi per lunghezza di parola</string>
     <string name="pref_definitionProvider_dictionaryProvider_online">In linea</string>
     <string name="pref_definitionProvider_dialog">Seleziona il fornitore di definizioni</string>
     <string name="pref_definitionProvider_summary">Seleziona un fornitore di definizioni per usarlo. Se il fornitore selezionato non è installato, una fonte in linea come il Wikizionario verrà utilizzata.</string>
     <string name="pref_definitionProvider">Fornitore di definizioni</string>
-    <string name="pref_dict_pt_BR">Portoghese (Brasile)</string>
+    <string name="pref_dict_pt_BR_no_diacritics">Portoghese (Brasile)</string>
     <string name="sort">Ordina</string>
     <string name="theme_high_contrast">Contrasto elevato</string>
     <string name="theme_dark">Scuro</string>
@@ -84,7 +82,8 @@
 \n
 \nPuoi cambiare la modalità di gioco dalla schermata principale o crearne una tua. I punteggi più alti si basano sulla modalità di gioco e sul lessico.</string>
     <plurals name="num_minutes">
-        <item quantity="one">%d min</item>
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d min</item>
         <item quantity="other">%d min</item>
     </plurals>
     <string name="whats_new_why">Perché\?</string>
@@ -110,10 +109,12 @@
     <string name="input_game_mode_name_hint">Nome</string>
     <plurals name="max_score_points_suffix">
         <item quantity="one">/ %d punto</item>
+        <item quantity="many">/ %d punti</item>
         <item quantity="other">/ %d punti</item>
     </plurals>
     <plurals name="num_found_words_out_of_total">
         <item quantity="one">%d / %d parola</item>
+        <item quantity="many">%d / %d parole</item>
         <item quantity="other">%d / %d parole</item>
     </plurals>
     <string name="menu_view_found_words">Visualizza le parole trovate</string>
@@ -140,12 +141,50 @@
 \n
 \nPuoi mostrare il tuo sostegno e contribuire al suo ulteriore sviluppo donando tramite <a href="https://liberapay.com/Lexica">Liberapay</a> o <a href="https://github.com/sponsors/pserwylo">GitHub Sponsors</a>.</string>
     <string name="whats_new_support">Sostieni Lexica</string>
-    <string name="whats_new_multiplayer_description">Inizia una nuova partita dalla schermata principale, poi condividi gli inviti utilizzando un codice QR, SMS, e-mail, ecc.
+    <plurals name="num_available_words_in_game">
+        <item quantity="one">%1$d parola</item>
+        <item quantity="many">%1$d parole</item>
+        <item quantity="other">%1$d parole</item>
+    </plurals>
+    <plurals name="num_available_words_in_game__tap_to_refresh">
+        <item quantity="one">%1$d parola (tocca per aggiornare)</item>
+        <item quantity="many">%1$d parole (tocca per aggiornare)</item>
+        <item quantity="other">%1$d parole (tocca per aggiornare)</item>
+    </plurals>
+    <string name="invalid_multiplayer_link">Collegamento multigiocatore/condivisione ricevuto errato, non è possibile unirsi al gioco. Assicurati che entrambi stiate usando l’ultima versione di Lexica.</string>
+    <string name="dialog_refresh_confirmation_message">Campo aggiornato</string>
+    <string name="dialog_refresh_button">Aggiorna</string>
+    <string name="dialog_refresh_content">Per assicurarti di giocare lo stesso campo di gioco dei tuoi avversari, assicurati di inviare nuovamente gli inviti dopo averlo aggiornato.</string>
+    <string name="dialog_refresh_title">Aggiorna il campo</string>
+    <string name="pref_dict_pt_BR_description" tools:keep="@string/pref_dict_br_BR_description">Include diacritici: çáéíóúâêôãõà e lettere: kwy</string>
+    <string name="pref_dict_pt_BR" tools:keep="@string/pref_dict_pt_BR">Portoghese (Brasile) (esteso)</string>
+    <string name="dialog_end_game_confirm_message">Sei sicuro/a di voler terminare questa partita\?</string>
+    <string name="dialog_end_game_confirm_title">Termina la partita</string>
+    <string name="pref_dict_es_solo_enne_description" tools:keep="@string/pref_dict_es_solo_ennedescription">Include ñ ma senza accenti</string>
+    <string name="pref_dict_es_solo_enne" tools:keep="@string/pref_dict_es_solo_enne">Spagnolo, solo Ñ</string>
+    <string name="pref_dict_es_description" tools:keep="@string/pref_dict_es_description">Include i diacritici: áéíóúüñ</string>
+    <string name="whats_new_sharing">Condividi una sfida!</string>
+    <string name="whats_new_sharing_description">Dopo aver terminato una partita, ora puoi condividere il tabellone con i tuoi amici e sfidarli a battere il tuo punteggio.
 \n
-\nDopo aver ricevuto l’invito, gli altri possono giocare con la stessa tavola generata casualmente, con le stesse regole.
+\nSimile al multigiocatore, ma per quella volta in cui hai appena giocato una tavola particolarmente interessante o impegnativa che pensi che i tuoi amici apprezzeranno.
 \n
-\nQuando hai finito, confronta i tuoi punteggi per vedere chi ha il miglior lessico.
+\nCome sempre, i <a href="https://github.com/lexica/lexica/issues">comenti sono benvenuti</a> su come questa funzione può essere migliorata.</string>
+    <string name="share">Condividi</string>
+    <string name="invite__multiplayer__game_offline">Vuoi giocare fuori linea\? Prova a giocare con carta e penna:</string>
+    <string name="back">Indietro</string>
+    <string name="send_multiplayer_invite_to">Invia un invito a…</string>
+    <string name="invite__multiplayer__description">Sei stato/a invitato/a a una partita multigiocatore di Lexica:</string>
+    <string name="invite__challenge__description">Ho trovato %1$d parole e totalizzato %2$d punti su questo tabellone Lexica, puoi battermi\?</string>
+    <string name="invite__dont_have_lexica_installed">Non hai installato Lexica\? Prendilo da https://play.google.com/store/apps/details\?id=com.serwylo.lexica</string>
+    <string name="send_challenge_invite_to">Invia la sfida a…</string>
+    <string name="invite__dont_have_lexica_installed_web">Oppure prova Lexica nel browser (beta):</string>
+    <string name="multiplayer__toggle_qr_app">Mostra
+\nil codice QR Android</string>
+    <string name="multiplayer__toggle_qr_web">Mostra
+\nil codice QR web</string>
+    <string name="whats_new_web_lexica">Presentazione di Lexica web!</string>
+    <string name="whats_new_web_lexica_description">Un ringraziamento speciale a @MattRCole per l\'enorme sforzo di dare vita a tutto questo!
 \n
-\nCome sempre, i commenti sono benvenuti su come questa funzione può essere migliorata. Anche se questa non è stata pensata per essere una funzione multigiocatore in tempo reale/rete, speriamo che vi piaccia.</string>
-    <string name="whats_new_multiplayer">Multigiocatore!</string>
+\nGli inviti multiplayer ora includono collegamenti alla nuova versione web (beta) per coloro che non hanno dispositivi Android. Il codice QR mostrato quando si inizia una nuova partita multigiocatore può anche mostrare un URL alla versione web.</string>
+    <string name="pref_minWordLength">Lunghezza minima delle parole</string>
 </resources>

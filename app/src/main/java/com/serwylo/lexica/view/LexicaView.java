@@ -31,6 +31,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 
+import com.serwylo.lexica.GameActivity;
 import com.serwylo.lexica.R;
 import com.serwylo.lexica.Synchronizer;
 import com.serwylo.lexica.db.GameMode;
@@ -70,6 +71,10 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
     private Paint p;
     private Set<Integer> highlighted = new HashSet<>();
     private int maxWeight;
+
+    private float wordCountPosXLeft;
+    private float wordCountPosXRight;
+    private float wordCountPosYTop;
 
     public LexicaView(Context context, Game g) {
         this(context);
@@ -116,6 +121,12 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
         } else {
             gridsize = height - (2 * theme.padding) - theme.game.timer.height;
         }
+
+        // A bit of a hack to shrink the board on smaller devices. The goal isn't perfect
+        // responsive design for the smallest of all screens. Rather, lets make it at least
+        // playable and worry about perfection another day.
+        gridsize = Math.min(gridsize, height - theme.game.timer.height * 12);
+
         boxsize = ((float) gridsize) / boardWidth;
 
         if (mFingerTracker != null) {
@@ -271,9 +282,14 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
      * when rendering. This can be used to decide where to start the following word.
      * <p>
      * Note that this method is RTL aware. If the view should be drawn as RTL then the returned
-     * position will be to the let of the starting point, rather than the right.
+     * position will be to the left of the starting point, rather than the right.
+     * <p>
+     * Note that this relies heavily on https://stackoverflow.com/a/27631737
+     * about {@link android.graphics.Paint.FontMetrics} to position the words in line.
+     * See https://github.com/lexica/lexica/issues/194 for further discussion about misaligned Q's.
      */
     private float drawPastWord(@NonNull Canvas canvas, boolean isRtl, String word, float x, float y, boolean isWord, boolean hasBeenUsedBefore) {
+        word = game.getLanguage().toRepresentation(word);
         word = word.toUpperCase(game.getLanguage().getLocale());
 
         p.setTextSize(theme.game.pastWordTextSize);
@@ -286,12 +302,18 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
 
         p.setTextSize(theme.game.pastWordTextSize);
         p.setTextAlign(Paint.Align.LEFT);
-        canvas.drawText(word, isRtl ? x - width : x, y + height, p);
+
+        Paint.FontMetrics metrics = p.getFontMetrics();
+        float wordBaseline = y - metrics.ascent;
+        float wordTop = wordBaseline + metrics.top;
+        float wordBottom = wordBaseline + metrics.bottom;
+        canvas.drawText(word, isRtl ? x - width : x, wordBaseline, p);
 
         if (!isWord) {
             // Strike-through
             p.setStrokeWidth(6);
-            canvas.drawLine(isRtl ? x - width : x, y + height / 2, isRtl ? x : x + width, y + height / 2, p);
+            float strikeThroughHeight = wordBaseline + (metrics.bottom + metrics.top) / 2;
+            canvas.drawLine(isRtl ? x - width : x, strikeThroughHeight, isRtl ? x : x + width, strikeThroughHeight, p);
         }
 
         // Fade out the word as it approaches the end of the screen.
@@ -299,14 +321,14 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
             if (x - width < theme.game.score.padding) {
                 Shader shaderA = new LinearGradient(theme.game.score.padding * 5, y, theme.game.score.padding * 2, y, 0x00ffffff, theme.game.backgroundColor, Shader.TileMode.CLAMP);
                 p.setShader(shaderA);
-                canvas.drawRect(0, y - 2, theme.game.score.padding * 5, y + height + 2, p);
+                canvas.drawRect(0, wordTop, theme.game.score.padding * 5, wordBottom, p);
                 p.setShader(null);
             }
         } else {
             if (x + width > getWidth() - theme.game.score.padding) {
                 Shader shaderA = new LinearGradient(getWidth() - theme.game.score.padding * 5, y, getWidth() - theme.game.score.padding * 2, y, 0x00ffffff, theme.game.backgroundColor, Shader.TileMode.CLAMP);
                 p.setShader(shaderA);
-                canvas.drawRect(getWidth() - theme.game.score.padding * 5, y - 2, getWidth(), y + height + 2, p);
+                canvas.drawRect(getWidth() - theme.game.score.padding * 5, wordTop, getWidth(), wordBottom, p);
                 p.setShader(null);
             }
         }
@@ -352,7 +374,7 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
             if (scoreForBigWord > 0) {
                 bigWordToShow = isLayoutRtl() ? "+" + scoreForBigWord + " " + bigWordToShow : bigWordToShow + " +" + scoreForBigWord;
             }
-            canvas.drawText(bigWordToShow.toUpperCase(game.getLanguage().getLocale()), width / 2f, pos, p);
+            canvas.drawText(game.getLanguage().toRepresentation(bigWordToShow).toUpperCase(game.getLanguage().getLocale()), width / 2f, pos, p);
         }
 
 
@@ -431,6 +453,12 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
         p.setTextSize(theme.game.score.textSize);
         p.setTypeface(Fonts.get().getSansSerifBold());
         canvas.drawText(value, x + panelWidth / 2, y + theme.game.score.padding + headingHeight + theme.game.score.padding / 2f + valueHeight, p);
+
+        if (panelNum == 1 && wordCountPosXLeft == 0) {
+            wordCountPosXLeft = x;
+            wordCountPosXRight = x + panelWidth;
+            wordCountPosYTop = y;
+        }
     }
 
     private void clearScreen(Canvas canvas) {
@@ -467,11 +495,20 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
                 break;
             case MotionEvent.ACTION_UP:
                 mFingerTracker.release();
+                checkWordCountTap(event);
                 break;
         }
 
         redraw();
         return true;
+    }
+
+    private void checkWordCountTap(MotionEvent event) {
+        if (event.getX() >= wordCountPosXLeft
+         && event.getX() <= wordCountPosXRight
+         && event.getY() >= wordCountPosYTop) {
+            ((GameActivity)getContext()).showFoundWords();
+        }
     }
 
     @Override
@@ -554,6 +591,7 @@ public class LexicaView extends View implements Synchronizer.Event, Game.RotateH
             touchedCells.add(touching);
             highlighted = touchedCells;
             numTouched++;
+            game.playTileSound(numTouched);
             redraw();
         }
 

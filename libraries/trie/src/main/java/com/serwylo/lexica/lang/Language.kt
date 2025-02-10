@@ -28,12 +28,21 @@ abstract class Language {
     abstract fun toDisplay(value: String?): String?
 
     /**
+     * Same as toDisplay, but for the tried word list.
+     * Used in breton to change some letters which are not available as single
+     * unicode characters into their representation in two or three characters.
+     *
+     * @param value The word, as it is stored in the serialized trie.
+     */
+    abstract fun toRepresentation(value: String?): String?
+
+    /**
      * If some letters just don't make sense without suffixes, then this is where it should be
      * defined. The classic example is in English how "q" is almost always followed by a "u".
      * Although not always the case, it happens so frequently that for the benefit of a game,
      * it doesn't make sense to ever have a "q" by itself.
      */
-    abstract fun applyMandatorySuffix(value: String?): String?
+    abstract fun applyMandatorySuffix(value: String?): String
 
     /**
      * Each "letter" tile has a score. This score distribution is unique amoung different languages,
@@ -100,23 +109,29 @@ abstract class Language {
 
         @JvmStatic
         val allLanguages = mapOf(
+                "br_no_diacritics" to BretonNoDiacritics(),
                 "ca" to Catalan(),
                 "de_DE" to GermanDe(),
                 "de_DE_no_diacritics" to GermanDeNoDiacritics(),
                 "en_GB" to EnglishGB(),
                 "en_US" to EnglishUS(),
                 "es" to Spanish(),
+		        "es_solo_enne" to SpanishSoloEnne(),
                 "fa" to Persian(),
+                "fi" to Finnish(),
                 "fr_FR" to French(),
                 "fr_FR_no_diacritics" to FrenchNoDiacritics(),
                 "hu" to Hungarian(),
+                "hr_HR" to Croatian(),
                 "it" to Italian(),
                 "ja" to Japanese(),
                 "nl" to Dutch(),
                 "pl" to Polish(),
                 "pt_BR" to PortugueseBR(),
+                "pt_BR_no_diacritics" to PortugueseBRNoDiacritics(),
                 "ru" to Russian(),
                 "ru_extended" to RussianExtended(),
+                "tr" to Turkish(),
                 "uk" to Ukrainian(),
         )
 
@@ -143,7 +158,7 @@ abstract class Language {
 
         @JvmStatic
         fun getWiktionaryDefinitionUrl(langCode: String): String {
-            return "https://$langCode.wiktionary.org/wiki/%s"
+            return "https://$langCode.wiktionary.org/w/index.php?search=%s"
         }
 
     }

@@ -47,9 +47,9 @@ public class Spanish extends Language {
 
         letterPoints.put("j", 8);
         letterPoints.put("ñ", 8);
-        letterPoints.put("x", 1);
+        letterPoints.put("x", 8);
 
-        letterPoints.put("z", 1);
+        letterPoints.put("z", 10);
 
         // TODO: These are not included in Scrabble.
         // Indeed, they are only used for loanwords.
@@ -80,6 +80,11 @@ public class Spanish extends Language {
         }
 
         return value.toUpperCase(getLocale());
+    }
+
+    @Override
+    public String toRepresentation(String value) {
+        return value;
     }
 
     @Override

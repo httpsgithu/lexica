@@ -2224,7 +2224,6 @@ assists
 assize
 assizes
 assn
-assoc
 associate
 assonance
 assonant
@@ -2233,7 +2232,6 @@ assort
 assorted
 assorting
 assorts
-asst
 assuage
 assuaged
 assuages
@@ -2391,7 +2389,6 @@ attune
 attuned
 attunes
 attuning
-atty
 atwitter
 atypical
 aubergine
@@ -2513,7 +2510,6 @@ avast
 avatar
 avatars
 avaunt
-avdp
 ave
 avenge
 avenged
@@ -2539,7 +2535,6 @@ avert
 averted
 averting
 averts
-avg
 avian
 aviaries
 aviary
@@ -3384,7 +3379,6 @@ bazillion
 bazooka
 bazookas
 bbl
-bdrm
 beach
 beached
 beaches
@@ -4209,7 +4203,6 @@ birdlime
 birds
 birdseed
 birdsong
-birdying
 biretta
 birettas
 birth
@@ -4790,7 +4783,6 @@ boffin
 boffins
 boffo
 bog
-boga
 bogey
 bogeyed
 bogeying
@@ -5545,7 +5537,9 @@ bristles
 bristlier
 bristling
 bristly
+brit
 britches
+brits
 brittle
 brittler
 brittlest
@@ -6195,7 +6189,6 @@ buzzkill
 buzzkills
 buzzword
 buzzwords
-bxs
 bye
 byes
 bygone
@@ -7590,7 +7583,6 @@ chemo
 chemurgy
 chenille
 cheque
-chequed
 chequer
 chequered
 chequers
@@ -7637,7 +7629,6 @@ chewing
 chews
 chewy
 chg
-chge
 chi
 chic
 chicane
@@ -7785,7 +7776,6 @@ chlordane
 chloride
 chlorides
 chlorine
-chm
 choc
 chock
 chocked
@@ -7989,7 +7979,6 @@ cipher
 ciphered
 ciphering
 ciphers
-cir
 circa
 circadian
 circle
@@ -8261,7 +8250,6 @@ cliff
 cliffs
 clifftop
 clifftops
-clii
 climactic
 climate
 climates
@@ -8320,7 +8308,6 @@ clit
 clitoral
 clitoris
 clits
-clix
 cloaca
 cloacae
 cloak
@@ -8478,14 +8465,6 @@ clutching
 clutter
 cluttered
 clutters
-clvi
-clvii
-clxi
-clxii
-clxiv
-clxix
-clxvi
-clxvii
 cnidarian
 coach
 coached
@@ -9679,7 +9658,6 @@ corpsmen
 corpulent
 corpus
 corpuscle
-corr
 corral
 corralled
 corrals
@@ -9774,7 +9752,6 @@ costumer
 costumers
 costumes
 costuming
-costumire
 cosy
 cot
 cotangent
@@ -9974,7 +9951,6 @@ cozenage
 cozened
 cozening
 cozens
-cpd
 cpl
 cps
 crab
@@ -10115,8 +10091,6 @@ crawly
 craws
 cray
 crayfish
-crayola
-crayolas
 crayon
 crayoned
 crayoning
@@ -11184,10 +11158,6 @@ dazzler
 dazzlers
 dazzles
 dazzling
-dbl
-dded
-dding
-dds
 deacon
 deaconess
 deacons
@@ -12967,7 +12937,6 @@ divvied
 divvies
 divvy
 divvying
-dixieland
 dizzied
 dizzier
 dizzies
@@ -12984,8 +12953,6 @@ dobbed
 dobbin
 dobbing
 dobbins
-doberman
-dobermans
 dobro
 dobs
 doc
@@ -13428,7 +13395,6 @@ doziness
 dozing
 dozy
 dpi
-dpt
 drab
 drabber
 drabbest
@@ -14116,7 +14082,6 @@ ebonies
 ebony
 ebullient
 eccentric
-eccl
 ecclesial
 echelon
 echelons
@@ -14140,7 +14105,6 @@ ecliptic
 eclogue
 eclogues
 ecocide
-ecol
 ecologic
 ecologist
 ecology
@@ -14202,7 +14166,6 @@ editorial
 editors
 edits
 eds
-educ
 educable
 educate
 educated
@@ -14375,13 +14338,11 @@ elegiacal
 elegiacs
 elegies
 elegy
-elem
 element
 elemental
 elements
 elephant
 elephants
-elev
 elevate
 elevated
 elevates
@@ -14555,7 +14516,6 @@ emery
 emetic
 emetics
 emf
-emfs
 emigrant
 emigrants
 emigrate
@@ -14688,7 +14648,6 @@ enciphers
 encircle
 encircled
 encircles
-encl
 enclave
 enclaves
 enclose
@@ -14720,7 +14679,6 @@ encrypted
 encrypts
 encumber
 encumbers
-ency
 encyst
 encysted
 encysting
@@ -15139,7 +15097,6 @@ equitable
 equitably
 equities
 equity
-equiv
 equivocal
 era
 eradicate
@@ -15658,7 +15615,6 @@ exotic
 exotica
 exoticism
 exotics
-exp
 expand
 expanded
 expanding
@@ -17282,7 +17238,6 @@ flowery
 flowing
 flown
 flows
-flt
 flu
 flub
 flubbed
@@ -17432,7 +17387,6 @@ foist
 foisted
 foisting
 foists
-fol
 fold
 foldaway
 folded
@@ -18177,10 +18131,6 @@ fry
 fryer
 fryers
 frying
-ftp
-ftpers
-ftping
-ftps
 fuchsia
 fuchsias
 fuck
@@ -18313,7 +18263,6 @@ furlongs
 furlough
 furloughs
 furls
-furn
 furnace
 furnaces
 furnish
@@ -18910,7 +18859,6 @@ geologic
 geologies
 geologist
 geology
-geom
 geometer
 geometric
 geometry
@@ -21373,7 +21321,6 @@ hexing
 hey
 heyday
 heydays
-hgt
 hgwy
 hiatus
 hiatuses
@@ -21494,8 +21441,6 @@ hinters
 hinting
 hints
 hip
-hipbath
-hipbaths
 hipbone
 hipbones
 hipness
@@ -22073,7 +22018,6 @@ howsoever
 hoyden
 hoydenish
 hoydens
-hrs
 huarache
 huaraches
 hub
@@ -22497,7 +22441,6 @@ ignores
 ignoring
 iguana
 iguanas
-iii
 ilea
 ileitis
 ileum
@@ -22521,7 +22464,6 @@ ills
 illumine
 illumined
 illumines
-illus
 illusion
 illusions
 illusive
@@ -22654,7 +22596,6 @@ impend
 impended
 impending
 impends
-imper
 imperf
 imperfect
 imperial
@@ -22800,7 +22741,6 @@ inc
 incapable
 incapably
 incarnate
-inced
 incense
 incensed
 incenses
@@ -22819,7 +22759,6 @@ inchworms
 incidence
 incident
 incidents
-incing
 incipient
 incise
 incised
@@ -22836,7 +22775,6 @@ inciter
 inciters
 incites
 inciting
-incl
 inclement
 incline
 inclined
@@ -22860,7 +22798,6 @@ increase
 increased
 increases
 increment
-incs
 incubate
 incubated
 incubates
@@ -22878,7 +22815,6 @@ incurred
 incurring
 incurs
 incursion
-ind
 indebted
 indecency
 indecent
@@ -22968,7 +22904,6 @@ inertness
 inexact
 inexactly
 inexpert
-inf
 infamies
 infamous
 infamy
@@ -23301,7 +23236,6 @@ instils
 instinct
 instincts
 institute
-instr
 instruct
 instructs
 insular
@@ -23423,7 +23357,6 @@ intones
 intoning
 intranet
 intranets
-intrans
 intrepid
 intricacy
 intricate
@@ -23531,7 +23464,6 @@ involving
 inward
 inwardly
 inwards
-ioctl
 iodide
 iodides
 iodine
@@ -23607,7 +23539,6 @@ irrupts
 ischaemia
 ischaemic
 isinglass
-isl
 island
 islander
 islanders
@@ -23828,7 +23759,6 @@ jazzier
 jazziest
 jazzing
 jazzy
-jct
 jealous
 jealously
 jealousy
@@ -25238,7 +25168,6 @@ lazing
 lazy
 lazybones
 lazying
-lbs
 lbw
 lea
 leach
@@ -25659,7 +25588,6 @@ lifeboat
 lifeboats
 lifebuoy
 lifebuoys
-lifeforms
 lifeguard
 lifeless
 lifelike
@@ -25713,7 +25641,6 @@ lightship
 ligneous
 lignin
 lignite
-lii
 like
 likeable
 liked
@@ -25883,7 +25810,6 @@ lipreads
 lips
 lipstick
 lipsticks
-liq
 liquefied
 liquefies
 liquefy
@@ -25998,7 +25924,6 @@ livid
 lividly
 living
 livings
-lix
 lizard
 lizards
 llama
@@ -26414,7 +26339,6 @@ loyalties
 loyalty
 lozenge
 lozenges
-ltd
 luau
 luaus
 lubber
@@ -26577,14 +26501,6 @@ luxuriate
 luxuries
 luxurious
 luxury
-lvi
-lvii
-lxi
-lxii
-lxiv
-lxix
-lxvi
-lxvii
 lyceum
 lyceums
 lychgate
@@ -27404,7 +27320,6 @@ maze
 mazes
 mazurka
 mazurkas
-mdse
 mead
 meadow
 meadows
@@ -27437,7 +27352,6 @@ meant
 meantime
 meanwhile
 meany
-meas
 measles
 measlier
 measliest
@@ -27803,9 +27717,7 @@ mews
 mezzanine
 mezzo
 mezzos
-mfg
 mfr
-mfrs
 mgr
 miaow
 miaowed
@@ -28915,8 +28827,6 @@ mows
 moxie
 mpg
 mph
-mtg
-mtge
 much
 mucilage
 muck
@@ -29247,7 +29157,6 @@ muzzy
 mycology
 myelitis
 mynah
-mynahes
 myopia
 myopic
 myriad
@@ -29257,7 +29166,6 @@ myrmidons
 myrrh
 myrtle
 myrtles
-mys
 myself
 mysteries
 mystery
@@ -29408,7 +29316,6 @@ nations
 native
 natives
 nativity
-natl
 natter
 nattered
 nattering
@@ -29745,8 +29652,6 @@ nigga
 niggard
 niggardly
 niggards
-niggas
-niggaz
 nigger
 niggers
 niggle
@@ -30923,7 +30828,6 @@ orienting
 orients
 orifice
 orifices
-orig
 origami
 origin
 original
@@ -32420,8 +32324,6 @@ peignoir
 peignoirs
 peke
 pekes
-pekineses
-pekingese
 pekoe
 pelagic
 pelf
@@ -32903,7 +32805,6 @@ phreaking
 phyla
 phylogeny
 phylum
-phys
 physic
 physical
 physicals
@@ -33317,7 +33218,6 @@ pizzicati
 pizzicato
 pkg
 pkt
-pkwy
 placard
 placarded
 placards
@@ -34260,7 +34160,6 @@ powwows
 pox
 poxes
 ppm
-ppr
 practical
 practice
 practices
@@ -34728,7 +34627,6 @@ probings
 probity
 problem
 problems
-probosces
 proboscis
 procaine
 procedure
@@ -34956,7 +34854,6 @@ proud
 prouder
 proudest
 proudly
-prov
 provable
 provably
 prove
@@ -35416,7 +35313,6 @@ puzzler
 puzzlers
 puzzles
 puzzling
-pvt
 pwn
 pwned
 pwning
@@ -35446,7 +35342,6 @@ pythons
 pyx
 pyxes
 pzazz
-qts
 qty
 qua
 quack
@@ -35569,7 +35464,6 @@ queries
 querulous
 query
 querying
-ques
 quest
 quested
 questing
@@ -35696,7 +35590,6 @@ quondam
 quorate
 quorum
 quorums
-quot
 quota
 quotable
 quotas
@@ -36385,7 +36278,6 @@ recasting
 recasts
 recce
 recces
-recd
 recede
 receded
 recedes
@@ -38215,7 +38107,6 @@ rituals
 ritzier
 ritziest
 ritzy
-riv
 rival
 rivalled
 rivalling
@@ -38623,8 +38514,6 @@ royals
 royalties
 royalty
 rpm
-rps
-rte
 rub
 rubato
 rubatos
@@ -39487,7 +39376,6 @@ sceptical
 sceptics
 sceptre
 sceptres
-sch
 schedule
 scheduled
 scheduler
@@ -39632,7 +39520,6 @@ scotch
 scotched
 scotches
 scotching
-scotchs
 scoundrel
 scour
 scoured
@@ -40020,7 +39907,6 @@ secures
 securest
 securing
 security
-secy
 sedan
 sedans
 sedate
@@ -40111,7 +39997,6 @@ segue
 segued
 segueing
 segues
-seguing
 seigneur
 seigneurs
 seignior
@@ -40358,7 +40243,6 @@ setbacks
 sets
 setscrew
 setscrews
-setsquare
 sett
 settable
 settee
@@ -40942,7 +40826,6 @@ showrooms
 shows
 showtime
 showy
-shpt
 shrank
 shrapnel
 shred
@@ -43399,7 +43282,6 @@ spyglass
 spying
 spymaster
 spyware
-sqq
 squab
 squabble
 squabbled
@@ -43785,7 +43667,6 @@ stayers
 staying
 stays
 std
-stdio
 stead
 steadfast
 steadied
@@ -44882,12 +44763,10 @@ supervene
 supervise
 supine
 supinely
-supp
 supped
 supper
 suppers
 supping
-suppl
 supplant
 supplants
 supple
@@ -44917,7 +44796,6 @@ supremely
 supremo
 supremos
 sups
-supt
 surcease
 surceased
 surceases
@@ -46838,7 +46716,6 @@ titular
 tizz
 tizzies
 tizzy
-tnpk
 toad
 toadied
 toadies
@@ -47391,7 +47268,6 @@ transient
 transit
 transited
 transits
-transl
 translate
 transmit
 transmits
@@ -47459,7 +47335,6 @@ treadles
 treadling
 treadmill
 treads
-treas
 treason
 treasure
 treasured
@@ -47857,7 +47732,6 @@ tsetses
 tsp
 tsunami
 tsunamis
-ttys
 tub
 tuba
 tubal
@@ -48247,7 +48121,6 @@ uglier
 ugliest
 ugliness
 ugly
-uhf
 ukase
 ukases
 ukulele
@@ -48708,7 +48581,6 @@ unitises
 unitising
 units
 unity
-univ
 univalent
 univalve
 univalves
@@ -49665,7 +49537,6 @@ veronica
 verruca
 verrucae
 verrucas
-versa
 versatile
 verse
 versed
@@ -49735,7 +49606,6 @@ vexatious
 vexed
 vexes
 vexing
-vhf
 via
 viability
 viable
@@ -49822,7 +49692,6 @@ vignettes
 vigorous
 vigour
 vii
-viii
 viking
 vikings
 vile
@@ -50006,7 +49875,6 @@ vixens
 viz
 vizier
 viziers
-vlf
 vocab
 vocable
 vocables
@@ -51433,7 +51301,6 @@ wizardly
 wizardry
 wizards
 wizened
-wkly
 woad
 wobble
 wobbled
@@ -51820,49 +51687,15 @@ wussier
 wussies
 wussiest
 wussy
-xci
-xcii
-xciv
-xcix
-xcvi
-xcvii
 xenon
 xenophobe
 xerox
 xeroxed
 xeroxes
 xeroxing
-xii
-xiii
 xis
-xiv
-xix
 xor
-xref
-xrefs
-xterm
-xvi
-xvii
-xviii
-xxi
-xxii
-xxiii
-xxiv
-xxix
-xxv
-xxvi
-xxvii
-xxviii
 xxx
-xxxi
-xxxii
-xxxiii
-xxxiv
-xxxix
-xxxv
-xxxvi
-xxxvii
-xxxviii
 xylem
 xylene
 xylophone

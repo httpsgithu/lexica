@@ -24,8 +24,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class CharProbGenerator {
@@ -58,6 +60,21 @@ public class CharProbGenerator {
             // Checked exceptions considered harmful.
         }
 
+    }
+
+    public CharProbGenerator(CharProbGenerator charProbGenerator) {
+        charProbs = new ArrayList<>(charProbGenerator.charProbs.size());
+        for (ProbabilityQueue q : charProbGenerator.charProbs) {
+            charProbs.add(new ProbabilityQueue(q));
+        }
+    }
+
+    public Map<String, List<Integer>> getDistribution() {
+        Map<String, List<Integer>> dist = new HashMap<>();
+        for (ProbabilityQueue p : charProbs) {
+            dist.put(p.letter, new ArrayList<>(p.probQueue));
+        }
+        return dist;
     }
 
     public List<String> getAlphabet() {
@@ -106,8 +123,10 @@ public class CharProbGenerator {
             total += pq.peekProb();
         }
 
-        // shuffle the letters
-        for (int to = 15; to > 0; to--) {
+        // Although strictly not necessary because they were randomly chosen above, it is not
+        // uniformly random above - those with higher probabilities are probably selected first.
+        // Hence, we shuffle again.
+        for (int to = board.length - 1; to > 0; to--) {
             int from = rng.nextInt(to);
             String tmp = board[to];
             board[to] = board[from];
@@ -117,7 +136,7 @@ public class CharProbGenerator {
         return board;
     }
 
-    private static class ProbabilityQueue {
+    public static class ProbabilityQueue {
 
         private final String letter;
         private final LinkedList<Integer> probQueue;
@@ -125,6 +144,14 @@ public class CharProbGenerator {
         ProbabilityQueue(String l) {
             letter = l;
             probQueue = new LinkedList<>();
+        }
+
+        ProbabilityQueue(ProbabilityQueue queue) {
+            letter = queue.getLetter();
+            probQueue = new LinkedList<>();
+            for (var p : queue.probQueue) {
+                probQueue.add(p);
+            }
         }
 
         /**

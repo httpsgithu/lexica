@@ -3,21 +3,21 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 
 buildscript {
-    ext.kotlin_version = '1.4.30'
+    ext.kotlin_version = '1.8.22'
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.github.bjoernq:unmockplugin:0.7.6'
+        classpath 'com.github.bjoernq:unmockplugin:0.7.8'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
 }
@@ -46,23 +46,29 @@ task buildTrieLib(type: GradleBuild) {
 task buildDictionaries
 
 def languages = [
+  "br_no_diacritics",
   "ca",
   "de_DE",
   "de_DE_no_diacritics",
   "en_US",
   "en_GB",
   "es",
+  "es_solo_enne",
   "fa",
+  "fi",
   "fr_FR",
   "fr_FR_no_diacritics",
   "hu",
+  "hr_HR",
   "it",
   "ja",
   "nl",
   "pl",
   "pt_BR",
+  "pt_BR_no_diacritics",
   "ru",
   "ru_extended",
+  "tr",
   "uk",
 ]
 languages.each { lang ->
@@ -115,4 +121,9 @@ compileTestKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }

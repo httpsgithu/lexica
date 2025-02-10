@@ -4,13 +4,12 @@
     <string name="lexicon_is_in_beta">Beta</string>
     <string name="high_score">Υψηλή βαθμολογία</string>
     <string name="words">Λέξεις</string>
-    <string name="pref_definitionProvider_summary">Επιλέξτε μια υπηρεσία παροχής ορισμού για χρήση. Εάν η επιλεγμένη υπηρεσία παροχής δεν είναι εγκατεστημένη, θα χρησιμοποιηθεί το DuckDuckGo.</string>
+    <string name="pref_definitionProvider_summary">Επιλέξτε μια υπηρεσία παροχής ορισμών που θα χρησιμοποιηθεί. Εάν η επιλεγμένη υπηρεσία παροχής δεν είναι εγκατεστημένη, θα χρησιμοποιηθεί μια ηλεκτρονική πηγή όπως το Wiktionary.</string>
     <string name="pref_dict_ja">Ιαπωνικά</string>
     <string name="pref_dict_es">Ισπανικά</string>
     <string name="define_word"><u>Ορισμός</u> </string>
     <string name="pref_sounds">Ήχος ενεργοποιημένος</string>
     <string name="show_unique">Εμφάνιση μοναδικών λέξεων</string>
-    <string name="pref_sounds_summary">Εάν είναι ενεργοποιημένα τα ηχητικά εφέ ή όχι</string>
     <string name="menu_end_game">Τερματισμός παιχνιδιού</string>
     <string name="button_ok">Εντάξει</string>
     <string name="pref_dict_nl">Ολλανδικά</string>
@@ -35,7 +34,6 @@
     <string name="pref_dict_en_GB">Αγγλικά (ΗΒ)</string>
     <string name="total_score">Συνολική βαθμολογία:</string>
     <string name="pref_resetScores">Μηδενισμός υψηλών βαθμολογιών</string>
-    <string name="pref_resetScores_summary">Οι υψηλές βαθμολογίες παρακολουθούνται για κάθε συνδυασμό των παραπάνω ρυθμίσεων. Πατήστε για να μηδενίσετε όλες τις βαθμολογίες.</string>
     <string name="pref_timeLimit">Χρονικό όριο</string>
     <string name="word_length">Μήκος λέξης</string>
     <string name="view_word"><u>Προβολή</u></string>
@@ -51,14 +49,14 @@
 \n</string>
     <string name="pref_scoreType">Τύπος βαθμολόγησης</string>
     <string name="menu_rotate_board">Περιστροφή πίνακα</string>
-    <string name="pref_dict_de_DE">Γερμανικά</string>
+    <string name="pref_dict_de_DE">Γερμανικά (Εκτεταμένα)</string>
     <string name="dialog_about_title">Σχετικά με τη Lexica</string>
     <string name="prefs">Προτιμήσεις</string>
     <string name="app_name">Lexica</string>
     <string name="high_scores_reset">Οι υψηλοί βαθμοί έχουν μηδενιστεί.</string>
     <string name="hide_unique">Απόκρυψη μοναδικών λέξεων</string>
     <string name="reset_scores_prompt">Είστε βέβαιοι ότι θέλετε να επαναφέρετε όλες τις υψηλές βαθμολογίες για όλους τους τρόπους παιχνιδιού στο μηδέν;</string>
-    <string name="pref_dict_fr_FR">Γαλλικά</string>
+    <string name="pref_dict_fr_FR">Γαλλικά (εκτεταμένα)</string>
     <string name="pref_dict">Λεξικό</string>
     <string name="button_cancel">Άκυρο</string>
     <string name="button_delete">Διαγραφή</string>
@@ -81,7 +79,7 @@
     <string name="hint_colour">Χρώμα πλακιδίων</string>
     <string name="tile_count">Αριθμός λέξεων</string>
     <string name="pref_dict_ru_extended" tools:keep="@string/pref_dict_ru_extended">Ρωσικά (Εκτεταμένα)</string>
-    <string name="pref_dict_pt_BR" tools:keep="@string/pref_dict_pt_BR">Πορτογαλικά (Βραζιλία)</string>
+    <string name="pref_dict_pt_BR_no_diacritics" tools:keep="@string/pref_dict_pt_BR">Πορτογαλικά (Βραζιλία)</string>
     <string name="pref_dict_pl" tools:keep="@string/pref_dict_pl">Πολωνικά</string>
     <string name="pref_dict_fr_FR_no_diacritics" tools:keep="@string/pref_dict_fr_FR_no_diacritics">Γαλλικά</string>
     <string name="pref_dict_de_DE_no_diacritics" tools:keep="@string/pref_dict_de_DE_no_diacritics">Γερμανικά</string>
@@ -102,4 +100,23 @@
     <string name="pref_hintMode">Λειτουργία υποδείξεων</string>
     <string name="pref_dict_ru_extended_description" tools:keep="@string/pref_dict_ru_extended_description">Περιλαμβάνει περιπτώσεις γραμματικής και συντομογραφίες</string>
     <string name="pref_dict_de_DE_description" tools:keep="@string/pref_dict_de_DE_description">Περιλαμβάνει διακριτικά: äöü</string>
+    <string name="new_game_mode">Νέα λειτουργία παιχνιδιού</string>
+    <string name="pref_dict_fr_FR_description" tools:keep="@string/pref_dict_fr_FR_description">Περιλαμβάνει διακριτικά: àâçéèêëîïôöûü</string>
+    <plurals name="max_score_points_suffix">
+        <item quantity="one">/ %d βαθμός</item>
+        <item quantity="other">/ %d βαθμοί</item>
+    </plurals>
+    <string name="whats_new_title">Τι νέο υπάρχει</string>
+    <string name="dialog_refresh_button">Ανανέωση</string>
+    <string name="dialog_refresh_title">Ανανέωση πίνακα</string>
+    <string name="pref_dict_pt_BR_description" tools:keep="@string/pref_dict_br_BR_description">Περιλαμβάνει διακριτικά: çáéíóúâêôãõà και γράμματα: kwy</string>
+    <string name="pref_dict_es_description" tools:keep="@string/pref_dict_es_description">Περιλαμβάνει διακριτικά: áéíóúüñ</string>
+    <string name="pref_dict_es_solo_enne_description" tools:keep="@string/pref_dict_es_solo_ennedescription">Περιλαμβάνει ñ αλλά όχι τόνους</string>
+    <string name="pref_dict_pt_BR" tools:keep="@string/pref_dict_pt_BR">Πορτογαλικά (Βραζιλία) (Εκτεταμένα)</string>
+    <string name="delete_custom_game_mode">Διαγραφή προσαρμοσμένης λειτουργίας παιχνιδιού \"%1$s\"; Όλα τα υψηλά σκορ θα χαθούν.</string>
+    <string name="game_mode_legacy_description">Χρησιμοποιήθηκε σε παλαιότερη έκδοση του Lexica</string>
+    <string name="error_restoring_game">Δεν ήταν δυνατή η επαναφορά του παιχνιδιού σας</string>
+    <string name="whats_new_sharing">Μοιραστείτε μια πρόκληση!</string>
+    <string name="dialog_refresh_content">Για να διασφαλίσετε ότι παίζετε στον ίδιο πίνακα με τους αντιπάλους σας, φροντίστε να στείλετε εκ νέου τις προσκλήσεις μετά την ανανέωση.</string>
+    <string name="dialog_refresh_confirmation_message">Ο πίνακας ανανεώθηκε</string>
 </resources>

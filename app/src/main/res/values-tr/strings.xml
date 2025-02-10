@@ -8,7 +8,7 @@
     <string name="pref_dict_en_US">İngilizce (US)</string>
     <string name="pref_dict_en_GB">İngilizce (UK)</string>
     <string name="pref_dict_de_DE">Almanca (Genişletilmiş)</string>
-    <string name="pref_dict_nl">Flemenkçe</string>
+    <string name="pref_dict_nl">Felemenkçe</string>
     <string name="pref_dict_fa">Farsça</string>
     <string name="pref_dict_fr_FR">Fransızca (Genişletilmiş)</string>
     <string name="pref_dict_it">İtalyanca</string>
@@ -22,8 +22,7 @@
     <string name="pref_scoreType">Puanlama Türü</string>
     <string name="word_length">Sözcük Uzunluğu</string>
     <string name="letter_points">Harf Puanı</string>
-    <string name="pref_sounds">Sesleri Etkinleştir</string>
-    <string name="pref_sounds_summary">Ses efektlerinin etkinleştirilip etkinleştirilmediği</string>
+    <string name="pref_sounds">Ses Efektleri</string>
     <string name="dialog_about_title">Lexica Hakkında</string>
     <string name="dialog_about_content">Kelimeleri hecelemek için ekrana dokunun ve parmağınızı bitişik karelere doğru hareket ettirin. Mümkün olduğunca çok kelime bulmak için üç dakikanız var.
 \n
@@ -50,14 +49,13 @@
     <string name="total_score">Toplam Puan:</string>
     <string name="value_max_percentage">%1$d/%2$d (%3$d%%)</string>
     <string name="high_score">Yüksek Puan</string>
-    <string name="pref_resetScores_summary">Yukarıdaki ayarların her bir kombinasyonu için yüksek puanlar izlenir. Tüm puanları sıfırlamak için dokunun.</string>
     <string name="pref_resetScores">Yüksek Puanları Sıfırla</string>
     <string name="high_scores_reset">Yüksek puanlar sıfırlandı.</string>
-    <string name="reset_scores_prompt">Tüm oyun modları için yüksek puanları sıfırlamak istediğinizden emin misiniz\?</string>
+    <string name="reset_scores_prompt">Tüm oyun modları için yüksek puanları sıfırlamak istediğinizden emin misiniz\? Bu geri alınamaz.</string>
     <string name="pref_breakdown">Sözcük Uzunluğu Dağılımını Göster</string>
     <string name="pref_breakdown_summary">Sözcük sayısının sözcük uzunluğuna göre gösterilip gösterilmediği</string>
     <string name="pref_definitionProvider">Tanım Sağlayıcısı</string>
-    <string name="pref_definitionProvider_summary">Kullanılacak bir tanım sağlayıcı seçin. Seçilen sağlayıcı yüklenmemişse, Wiktionary gibi çevrim içi bir kaynak kullanılacaktır.</string>
+    <string name="pref_definitionProvider_summary">Seçilen sağlayıcı kurulu değilse, Wiktionary gibi çevrim içi bir kaynak kullanılacaktır.</string>
     <string name="pref_definitionProvider_dialog">Tanım Sağlayıcıyı Seç</string>
     <string name="pref_dict_hu">Macarca</string>
     <string name="pref_hintMode">İpucu modu</string>
@@ -67,7 +65,7 @@
     <string name="pref_dict_uk">Ukraynaca</string>
     <string name="pref_definitionProvider_dictionaryProvider_online">Çevrim içi</string>
     <string name="pref_dict_pl">Lehçe</string>
-    <string name="pref_dict_pt_BR">Portekizce (Brezilya)</string>
+    <string name="pref_dict_pt_BR_no_diacritics">Portekizce (Brezilya)</string>
     <string name="time">Süre</string>
     <string name="theme_dark">Karanlık</string>
     <string name="theme_light">Aydınlık</string>
@@ -124,9 +122,9 @@
     <string name="pref_dict_ru_extended_description" tools:keep="@string/pref_dict_ru_extended_description">Dil bilgisi durumlarını ve kısaltmaları içerir</string>
     <string name="pref_dict_ru_extended" tools:keep="@string/pref_dict_ru_extended">Rusça (Genişletilmiş)</string>
     <string name="pref_dict_fr_FR_no_diacritics" tools:keep="@string/pref_dict_fr_FR_no_diacritics">Fransızca</string>
-    <string name="pref_dict_fr_FR_description" tools:keep="@string/pref_dict_fr_FR_description">Aksanları içerir: àâçéèêëîïôöûü</string>
+    <string name="pref_dict_fr_FR_description" tools:keep="@string/pref_dict_fr_FR_description">àâçéèêëîïôöûü aksan işaretlerini içerir</string>
     <string name="pref_dict_de_DE_no_diacritics" tools:keep="@string/pref_dict_de_DE_no_diacritics">Almanca</string>
-    <string name="pref_dict_de_DE_description" tools:keep="@string/pref_dict_de_DE_description">Aksanları içerir: äöü</string>
+    <string name="pref_dict_de_DE_description" tools:keep="@string/pref_dict_de_DE_description">äöü aksan işaretlerini içerir</string>
     <string name="new_game_mode">Yeni oyun modu</string>
     <string name="game_mode">Oyun modu</string>
     <string name="multiplayer">Çok oyunculu</string>
@@ -140,12 +138,55 @@
 \n
 \n<a href="https://liberapay.com/Lexica">Liberapay</a> veya <a href="https://github.com/sponsors/pserwylo">GitHub Sponsorları</a> aracılığıyla bağış yaparak desteğinizi gösterebilir ve daha da geliştirilmesine katkıda bulunabilirsiniz.</string>
     <string name="whats_new_support">Lexica\'yı destekleyin</string>
-    <string name="whats_new_multiplayer_description">Ana ekrandan yeni bir oyun başlatın, ardından QR kodu, SMS, e-posta vb. kullanarak davetleri paylaşın.
+    <plurals name="num_available_words_in_game">
+        <item quantity="one">%1$d sözcük</item>
+        <item quantity="other">%1$d sözcük</item>
+    </plurals>
+    <plurals name="num_available_words_in_game__tap_to_refresh">
+        <item quantity="one">%1$d sözcük (yenilemek için dokunun)</item>
+        <item quantity="other">%1$d sözcük (yenilemek için dokunun)</item>
+    </plurals>
+    <string name="invalid_multiplayer_link">Yanlış çok oyuncu/paylaşım bağlantısı alındı, oyuna katılınamıyor. Her ikinizin de Lexica\'nın en son sürümünü kullandığından emin olun.</string>
+    <string name="dialog_refresh_confirmation_message">Tahta yenilendi</string>
+    <string name="dialog_refresh_button">Yenile</string>
+    <string name="dialog_refresh_content">Rakiplerinizle aynı tahtayı oynadığınızdan emin olmak için, yeniledikten sonra tüm davetleri tekrar gönderdiğinizden emin olun.</string>
+    <string name="dialog_refresh_title">Tahtayı yenile</string>
+    <string name="pref_dict_pt_BR_description" tools:keep="@string/pref_dict_br_BR_description">çáéíóúâêôãõà aksan işaretlerini ve kwy harflerini içerir</string>
+    <string name="pref_dict_pt_BR" tools:keep="@string/pref_dict_pt_BR">Portekizce (Brezilya) (Genişletilmiş)</string>
+    <string name="dialog_end_game_confirm_message">Bu oyunu bitirmek istediğinizden emin misiniz\?</string>
+    <string name="dialog_end_game_confirm_title">Oyunu Bitir</string>
+    <string name="pref_dict_es_solo_enne_description" tools:keep="@string/pref_dict_es_solo_ennedescription">ñ içerir ancak aksan işaretlerini içermez</string>
+    <string name="pref_dict_es_solo_enne" tools:keep="@string/pref_dict_es_solo_enne">Yalnızca İspanyolca Ñ</string>
+    <string name="pref_dict_es_description" tools:keep="@string/pref_dict_es_description">áéíóúüñ aksan işaretlerini içerir</string>
+    <string name="whats_new_sharing">Meydan okumayı paylaş!</string>
+    <string name="share">Paylaş</string>
+    <string name="whats_new_sharing_description">Bir oyunu bitirdikten sonra, artık o tahtayı arkadaşlarınızla paylaşabilir ve puanınızı geçmeleri için onlara meydan okuyabilirsiniz.
 \n
-\nDaveti aldıktan sonra, başkaları da sizinle aynı rastgele oluşturulmuş tahtayı aynı kurallarla oynayabilir.
+\nÇok oyunculu gibi, ancak arkadaşlarınızın hoşuna gideceğini düşündüğünüz özellikle ilginç veya zorlu bir tahta düzeni oynadığınız zaman için.
 \n
-\nBitirdiğinizde, kimin daha iyi sözlüğe sahip olduğunu görmek için puanlarınızı karşılaştırın.
+\nHer zaman olduğu gibi, bu özelliğin nasıl iyileştirilebileceği hakkında <a href="https://github.com/lexica/lexica/issues">geri bildirime açığız</a>.</string>
+    <string name="invite__multiplayer__game_offline">Çevrim dışı oynamak ister misiniz\? Kalem ve kağıt ile oynamayı deneyin:</string>
+    <string name="invite__dont_have_lexica_installed">Lexica kurulu değil mi\? https://play.google.com/store/apps/details\?id=com.serwylo.lexica adresinden edinin</string>
+    <string name="send_challenge_invite_to">Meydan okuma gönder…</string>
+    <string name="send_multiplayer_invite_to">Davet gönder…</string>
+    <string name="invite__multiplayer__description">Çok oyunculu bir Lexica oyununa davet edildiniz:</string>
+    <string name="back">Geri</string>
+    <string name="invite__challenge__description">Bu Lexica tahtasında %1$d sözcük buldum ve %2$d puan aldım, beni yenebilir misin\?</string>
+    <string name="invite__dont_have_lexica_installed_web">Veya Lexica\'yı tarayıcıda deneyin (beta):</string>
+    <string name="multiplayer__toggle_qr_app">Android QR
+\nKodunu Göster</string>
+    <string name="multiplayer__toggle_qr_web">Web QR
+\nKodunu Göster</string>
+    <string name="whats_new_web_lexica">Web Lexica ile tanışın!</string>
+    <string name="whats_new_web_lexica_description">Bunu hayata geçirmek için böylesine büyük bir çaba için @MattRCole\'a özel teşekkürler!
 \n
-\nHer zaman olduğu gibi, bu özelliğin nasıl iyileştirilebileceği konusunda geri bildirim almaktan memnuniyet duyarız. Bunun gerçek zamanlı/ağ üzerinden çok oyunculu bir özellik olması amaçlanmasa da, beğeneceğinizi umuyoruz.</string>
-    <string name="whats_new_multiplayer">Çok oyunculu!</string>
+\nÇok oyunculu davetler artık Android sygıtı olmayanlar için yeni (beta) web sürümüne bağlantılar içeriyor. Yeni bir çok oyunculu oyun başlatılırken gösterilen QR kodu, web sürümünün URL\'sini de gösterebilir.</string>
+    <string name="pref_minWordLength">En küçük sözcük uzunluğu</string>
+    <string name="pref_dict_br_no_diacritics" tools:keep="@string/pref_dict_br">Bretonca</string>
+    <string name="pref_dict_fi" tools:keep="@string/pref_dict_fi">Fince</string>
+    <string name="pref_dict_tr" tools:keep="@string/pref_dict_tr">Türkçe</string>
+    <string name="pref_dict_hr_HR" tools:keep="@string/pref_dict_hr">Hırvatça</string>
+    <string name="time_limit_must_be_set">Zaman sınırı ayarlanmalıdır</string>
+    <string name="max_time_limit">En yüksek zaman sınırı 30 gündür (43200 dakika)</string>
+    <string name="time_limit_too_short">Zaman sınırı çok kısa</string>
 </resources>

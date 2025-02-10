@@ -8,19 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.serwylo.lexica.R;
 import com.serwylo.lexica.game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import mehdi.sakout.fancybuttons.FancyButton;
-
 class FoundWordsViewBinder extends ScoreWordsViewBinder {
 
     private final Adapter adapter;
     private final List<Item> items;
-    private final FancyButton sortButton;
+    private final MaterialButton sortButton;
 
     FoundWordsViewBinder(@NonNull ScoreActivity activity, FrameLayout parent, @NonNull Game game, @NonNull Sorter sorter) {
         super(activity, game, sorter);
@@ -30,7 +29,7 @@ class FoundWordsViewBinder extends ScoreWordsViewBinder {
         ScoreCalculator score = new ScoreCalculator(game);
         items = new ArrayList<>(score.getItems().size());
         for (ScoreCalculator.Selected selected : score.getItems()) {
-            items.add(new Item(selected.getWord(), selected.getScore(), true /*selected.isWord() */, null)); // TODO: Ah... what?
+            items.add(new Item(selected.getWord(), selected.getScore(), selected.isWord(), null));
         }
 
         adapter = new Adapter(items);
@@ -56,7 +55,7 @@ class FoundWordsViewBinder extends ScoreWordsViewBinder {
 
     }
 
-    protected FancyButton getSortButton() {
+    protected MaterialButton getSortButton() {
         return sortButton;
     }
 

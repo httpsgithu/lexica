@@ -16,7 +16,10 @@ object Changelog {
 
         // Only show when upgrading Lexica for the first time, not when we first open Lexica from
         // a fresh install.
-        whatsNew.presentationOption = if (isFirstRun(activity)) PresentationOption.NEVER else PresentationOption.IF_NEEDED
+        whatsNew.presentationOption = PresentationOption.NEVER
+
+        // v3.5.0 is minor fixes, no changelog required.
+        // whatsNew.presentationOption = if (isFirstRun(activity)) PresentationOption.NEVER else PresentationOption.IF_NEEDED
         whatsNew.presentAutomatically(activity)
 
         rememberLexicaHasRun(activity)
@@ -27,8 +30,13 @@ object Changelog {
 
         return WhatsNew.newInstance(
             WhatsNewItem(
-                context.getString(R.string.whats_new_multiplayer),
-                context.getString(R.string.whats_new_multiplayer_description),
+                context.getString(R.string.whats_new_web_lexica),
+                context.getText(R.string.whats_new_web_lexica_description),
+                R.drawable.ic_people,
+            ),
+            WhatsNewItem(
+                context.getString(R.string.whats_new_sharing),
+                context.getText(R.string.whats_new_sharing_description),
                 R.drawable.ic_people,
             ),
             WhatsNewItem(

@@ -21,7 +21,7 @@ if [[ ! -f "$DICT_FILE" ]]; then
     exit 1
 fi 
 
-# https://stackoverflow.com/a/387704
-sed -e "s/./\0\n/g" "$DICT_FILE" | sort -u | while read c; do echo -n "$c" ; done
+# Adapted from https://stackoverflow.com/a/387704
+grep -Pv '^(\s*|#.*)$' < "$DICT_FILE" | sed -e "s/./\0\n/g" | sort | uniq -c
 echo ""
 
