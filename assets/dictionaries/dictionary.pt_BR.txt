@@ -1618,9 +1618,7 @@ abâmitas
 abamo
 abamos
 abampere
-abampère
 abamperes
-abampères
 abampério
 abana
 abaná
@@ -61019,12 +61017,10 @@ ampembres
 amperagem
 ampere
 ampére
-ampère
 ampérea
 ampéreas
 amperense
 amperes
-ampères
 ampério
 ampérios
 amperite
@@ -124818,9 +124814,7 @@ boitas
 boitatá
 boitatás
 boite
-boîte
 boites
-boîtes
 boitiapó
 boitiapós
 boitinha
@@ -124953,7 +124947,6 @@ bojudo
 bojudos
 bojuí
 bojuís
-bokmål
 bola
 bolá
 bolã
@@ -387386,7 +387379,6 @@ lumieis
 lumiem
 lumiemo
 lumiemos
-lumière
 lumies
 lumilho
 lumilhos
@@ -404249,7 +404241,6 @@ megâmero
 megâmeros
 megametro
 megâmetro
-megampère
 megan
 meganeura
 meganha
@@ -427937,10 +427928,8 @@ naiteia
 naiteias
 naivaxa
 naivaxas
-naïve
 naiveca
 naivecas
-naïves
 naixó
 naixós
 naja
@@ -441450,8 +441439,6 @@ oigueis
 oiguem
 oiguemos
 oigues
-oïis
-oïl
 oila
 oilas
 oilite
@@ -488186,8 +488173,6 @@ premiem
 premiemo
 premiemos
 premier
-première
-premières
 premies
 premiês
 premimo
@@ -548080,8 +548065,6 @@ scherzos
 schoenita
 schoepita
 scholzita
-schönita
-schönitas
 schorlita
 schutzita
 sclero

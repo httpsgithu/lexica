@@ -3,21 +3,21 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 
 buildscript {
-    ext.kotlin_version = '1.4.30'
+    ext.kotlin_version = '2.1.10'
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath 'com.android.tools.build:gradle:8.10.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.github.bjoernq:unmockplugin:0.7.6'
+        classpath 'com.github.bjoernq:unmockplugin:0.7.8'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
 }
@@ -28,47 +28,53 @@ allprojects {
 // depends on. However, I couldn't figure out how to have a gradle plugin in the same project
 // as another gradle build which depended on that plugin.
 
-task buildLanguageAnalysis(type: GradleBuild) {
-    buildFile = file('libraries/language-analysis/build.gradle')
+tasks.register('buildLanguageAnalysis', GradleBuild) {
+    dir = file('libraries/language-analysis')
     tasks = ['shadowJar']
 }
 
-task buildTrieBuilder(type: GradleBuild) {
-    buildFile = file('libraries/trie-builder/build.gradle')
+tasks.register('buildTrieBuilder', GradleBuild) {
+    dir = file('libraries/trie-builder')
     tasks = ['shadowJar']
 }
 
-task buildTrieLib(type: GradleBuild) {
-    buildFile = file('libraries/trie/build.gradle')
+tasks.register('buildTrieLib', GradleBuild) {
+    dir = file('libraries/trie')
     tasks = ['build']
 }
 
-task buildDictionaries
+tasks.register('buildDictionaries')
 
 def languages = [
+  "br_no_diacritics",
   "ca",
   "de_DE",
   "de_DE_no_diacritics",
   "en_US",
   "en_GB",
   "es",
+  "es_solo_enne",
   "fa",
+  "fi",
   "fr_FR",
   "fr_FR_no_diacritics",
   "hu",
+  "hr_HR",
   "it",
   "ja",
   "nl",
   "pl",
   "pt_BR",
+  "pt_BR_no_diacritics",
   "ru",
   "ru_extended",
+  "tr",
   "uk",
 ]
 languages.each { lang ->
 
     def langTask = task "buildDictionary_${lang}"(dependsOn: buildTrieBuilder, type: JavaExec) {
-        main = 'com.serwylo.lexica.trie.TrieBuilderApp'
+        mainClass = 'com.serwylo.lexica.trie.TrieBuilderApp'
         classpath 'libraries/trie-builder/build/libs/trie-builder-all.jar'
         args = [
                 lang,
@@ -86,7 +92,7 @@ languages.each { lang ->
     buildDictionaries.dependsOn << langTask
 
     task "analyseLanguage_${lang}"(dependsOn: [buildLanguageAnalysis, langTask], type: JavaExec) {
-        main = 'com.serwylo.lexica.language.LanguageAnalysisApp'
+        mainClass = 'com.serwylo.lexica.language.LanguageAnalysisApp'
         classpath 'libraries/language-analysis/build/libs/language-analysis-all.jar'
         args = [
                 lang,
@@ -107,12 +113,17 @@ dependencies {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "21"
     }
 }
 
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "21"
     }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }

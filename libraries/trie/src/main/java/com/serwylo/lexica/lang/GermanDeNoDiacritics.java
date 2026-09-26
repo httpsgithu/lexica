@@ -35,7 +35,7 @@ public class GermanDeNoDiacritics extends Language {
         letterPoints.put("p", 4);
 
         letterPoints.put("j", 6);
-        letterPoints.put("v", 1);
+        letterPoints.put("v", 6);
 
         letterPoints.put("x", 8);
 
@@ -61,6 +61,11 @@ public class GermanDeNoDiacritics extends Language {
     @Override
     public String toDisplay(String value) {
         return value.toUpperCase(getLocale());
+    }
+
+    @Override
+    public String toRepresentation(String value) {
+        return value;
     }
 
     @Override

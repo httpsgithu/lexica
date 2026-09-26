@@ -28,10 +28,12 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
 
+import com.serwylo.lexica.activities.score.ScoreActivity;
 import com.serwylo.lexica.db.Database;
 import com.serwylo.lexica.db.GameMode;
 import com.serwylo.lexica.db.ResultRepository;
@@ -124,7 +126,8 @@ public class GameActivity extends AppCompatActivity implements Synchronizer.Fina
                 game.rotateBoard();
                 break;
             case R.id.end_game:
-                game.endNow();
+                promptToEndGame();
+                break;
         }
         return true;
     }
@@ -132,6 +135,15 @@ public class GameActivity extends AppCompatActivity implements Synchronizer.Fina
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         return game.getStatus() != Game.GameStatus.GAME_FINISHED;
+    }
+
+    private void promptToEndGame() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.dialog_end_game_confirm_title)
+                .setMessage(R.string.dialog_end_game_confirm_message)
+                .setPositiveButton(R.string.menu_end_game, (dialog, which) -> game.endNow())
+                .setNegativeButton(R.string.button_cancel, null)
+                .show();
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
@@ -220,13 +232,13 @@ public class GameActivity extends AppCompatActivity implements Synchronizer.Fina
                 synch.start();
                 break;
             case GAME_FINISHED:
-                score();
+                finishGame();
                 break;
         }
     }
 
     public void doFinalEvent() {
-        score();
+        finishGame();
     }
 
     private boolean hasSavedGame() {
@@ -237,27 +249,36 @@ public class GameActivity extends AppCompatActivity implements Synchronizer.Fina
         new GameSaverPersistent(this).clearSavedGame();
     }
 
-    private void score() {
+    private void finishGame() {
         synch.abort();
         clearSavedGame();
-
-        final Bundle bun = new Bundle();
-        game.save(new GameSaverTransient(bun));
 
         Database.writeExecutor.execute(() -> {
             ResultRepository repo = new ResultRepository(this);
             repo.recordGameResult(game);
-            showScore(bun);
         });
+
+        Intent scoreIntent = createScoreIntent();
+        startActivity(scoreIntent);
+        finish();
     }
 
-    private void showScore(Bundle bundleWithSavedGame) {
+    public void showFoundWords() {
+        synch.abort();
+        saveGamePersistent();
+
+        Intent scoreIntent = createScoreIntent();
+        scoreIntent.putExtra(ScoreActivity.ONLY_FOUND_WORDS, true);
+        startActivity(scoreIntent);
+    }
+
+    private Intent createScoreIntent() {
+        final Bundle bundleWithSavedGame = new Bundle();
+        game.save(new GameSaverTransient(bundleWithSavedGame));
+
         Intent scoreIntent = new Intent("com.serwylo.lexica.action.SCORE");
         scoreIntent.putExtras(bundleWithSavedGame);
-
-        startActivity(scoreIntent);
-
-        finish();
+        return scoreIntent;
     }
 
     @Override

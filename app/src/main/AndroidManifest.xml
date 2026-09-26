@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.serwylo.lexica">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
 		android:icon="@mipmap/ic_launcher"
@@ -11,7 +10,8 @@
 
         <activity android:name=".MainMenuActivity"
 			android:screenOrientation="portrait"
-			android:configChanges="orientation|keyboardHidden">
+			android:configChanges="orientation|keyboardHidden"
+			android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,10 +25,11 @@
 			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainMenuActivity" />
 		</activity>
 
-		<activity android:name=".activities.MultiplayerLobbyActivity"
+		<activity android:name=".activities.ShareGameLobbyActivity"
 			android:screenOrientation="portrait"
 			android:configChanges="orientation|keyboardHidden"
-			android:parentActivityName=".MainMenuActivity">
+			android:parentActivityName=".MainMenuActivity"
+			android:exported="true">
 			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainMenuActivity" />
 
 			<intent-filter>
@@ -49,7 +50,28 @@
 
 				<data android:scheme="https"/>
 				<data android:host="lexica.github.io"/>
-				<data android:path="/m/"/>
+				<data android:pathPrefix="/m/"/>
+			</intent-filter>
+
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<data android:scheme="https"/>
+				<data android:host="lexica.github.io"/>
+				<data android:pathPrefix="/share/"/>
+			</intent-filter>
+
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<data android:scheme="lexica"/>
+				<data android:host="share"/>
 			</intent-filter>
 		</activity>
 
@@ -91,7 +113,8 @@
 		<activity android:name=".GameActivity"
 			android:screenOrientation="portrait"
 			android:configChanges="orientation|keyboardHidden"
-			android:parentActivityName=".MainMenuActivity">
+			android:parentActivityName=".MainMenuActivity"
+			android:exported="true">
 			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainMenuActivity" />
 			<intent-filter>
 				<action android:name="com.serwylo.lexica.action.NEW_GAME" />
@@ -105,7 +128,8 @@
 
         <activity android:name=".activities.score.ScoreActivity"
 			android:screenOrientation="portrait"
-			android:configChanges="orientation|keyboardHidden">
+			android:configChanges="orientation|keyboardHidden"
+			android:exported="true">
 			<intent-filter>
 				<action android:name="com.serwylo.lexica.action.SCORE" />
 				<category android:name="android.intent.category.DEFAULT" />

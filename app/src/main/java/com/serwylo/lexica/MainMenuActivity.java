@@ -38,17 +38,17 @@ import com.serwylo.lexica.lang.LanguageLabel;
 
 import java.util.Locale;
 
-import com.serwylo.lexica.Changelog;
-
 public class MainMenuActivity extends AppCompatActivity {
 
     @SuppressWarnings("unused")
     protected static final String TAG = "Lexica";
 
+    private String currentTheme = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ThemeManager.getInstance().applyTheme(this);
+        currentTheme = ThemeManager.getInstance().applyTheme(this);
         load();
     }
 
@@ -88,7 +88,7 @@ public class MainMenuActivity extends AppCompatActivity {
             startActivity(new Intent(this, NewMultiplayerActivity.class));
         });
 
-        binding.preferences.setOnClickListener(v -> startActivity(new Intent("com.serwylo.lexica.action.CONFIGURE")));
+        binding.preferences.setOnClickListener(v -> startActivity(new Intent("com.serwylo.lexica.action.CONFIGURE").setClassName(getPackageName(), "com.serwylo.lexica.SettingsActivity")));
 
         long score = highScore == null ? 0 : highScore.getScore();
         binding.highScore.setText(String.format(Locale.getDefault(), "%d", score));
@@ -103,6 +103,18 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
+
+        // Upon returning from settings, the user may hit the "Up" button in the toolbar (in which
+        // case the main splash screen will be recreated from scratch and themed appropriately in
+        // the onCreate() method), or via the "back" button, in which case we will get here.
+        //
+        // If the user pressed back, then we will check if they changed the theme from what we set
+        // it to originally during onCreate(), and if so, force the activity to be recreated (and
+        // hence rethemed).
+        if (!ThemeManager.getInstance().getCurrentTheme().equals(currentTheme)) {
+            ThemeManager.getInstance().forceRestartActivityToRetheme(this);
+        }
+
         load();
     }
 

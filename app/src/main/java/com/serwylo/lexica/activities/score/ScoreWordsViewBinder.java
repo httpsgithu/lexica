@@ -1,6 +1,8 @@
 package com.serwylo.lexica.activities.score;
 
+import android.content.res.TypedArray;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,13 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.serwylo.lexica.R;
 import com.serwylo.lexica.game.Game;
 
 import java.util.Collections;
 import java.util.List;
-
-import mehdi.sakout.fancybuttons.FancyButton;
 
 abstract class ScoreWordsViewBinder {
 
@@ -40,7 +41,7 @@ abstract class ScoreWordsViewBinder {
         getAdapter().notifyDataSetChanged();
     }
 
-    abstract protected FancyButton getSortButton();
+    abstract protected MaterialButton getSortButton();
 
     abstract protected List<Item> getItems();
 
@@ -114,22 +115,38 @@ abstract class ScoreWordsViewBinder {
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        private int validWordColour;
+        private int invalidWordColour;
+
         ViewHolder(@NonNull View itemView) {
+
             super(itemView);
+
+            int[] attrs = new int[] {
+                    R.attr.game__selected_word_colour,
+                    R.attr.game__not_a_word_colour,
+            };
+            TypedArray attrValues = itemView.getContext().obtainStyledAttributes(attrs);
+            validWordColour = attrValues.getColor(0, 0xffffff);
+            invalidWordColour = attrValues.getColor(1, 0xffffff);
+            attrValues.recycle();
+
         }
 
         void bind(final Item item) {
 
             TextView word = itemView.findViewById(R.id.word);
-            word.setText(item.word.toUpperCase());
+            word.setText(game.getLanguage().toRepresentation(item.word).toUpperCase(game.getLanguage().getLocale()));
             TextView score = itemView.findViewById(R.id.score);
             score.setText("+" + item.points);
 
-            FancyButton define = itemView.findViewById(R.id.define);
+            MaterialButton define = itemView.findViewById(R.id.define);
 
             if (item.valid) {
 
                 word.setPaintFlags(word.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+                word.setTypeface(null, Typeface.BOLD);
+                word.setTextColor(validWordColour);
                 score.setVisibility(View.VISIBLE);
                 define.setVisibility(View.VISIBLE);
                 define.setOnClickListener(v -> definer.define(item.word));
@@ -137,13 +154,15 @@ abstract class ScoreWordsViewBinder {
             } else {
 
                 word.setPaintFlags(word.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                word.setTypeface(null, Typeface.NORMAL);
+                word.setTextColor(invalidWordColour);
                 score.setVisibility(View.GONE);
                 define.setVisibility(View.GONE);
                 define.setOnClickListener(null);
 
             }
 
-            FancyButton viewWord = itemView.findViewById(R.id.view_word);
+            MaterialButton viewWord = itemView.findViewById(R.id.view_word);
             if (item.viewWordListener == null) {
                 viewWord.setVisibility(View.GONE);
                 viewWord.setOnClickListener(null);

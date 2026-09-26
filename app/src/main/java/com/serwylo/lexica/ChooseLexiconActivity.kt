@@ -13,6 +13,7 @@ import com.serwylo.lexica.databinding.ChooseLexiconBinding
 import com.serwylo.lexica.databinding.LexiconListItemBinding
 import com.serwylo.lexica.lang.Language
 import com.serwylo.lexica.lang.LanguageLabel
+import androidx.core.content.edit
 
 class ChooseLexiconActivity : AppCompatActivity() {
 
@@ -56,9 +57,9 @@ class ChooseLexiconActivity : AppCompatActivity() {
 
     private fun selectLexicon(language: Language) {
         PreferenceManager.getDefaultSharedPreferences(this)
-                .edit()
-                .putString("dict", language.name)
-                .apply()
+                .edit {
+                    putString("dict", language.name)
+                }
 
         NavUtils.navigateUpFromSameTask(this)
     }
@@ -74,7 +75,6 @@ class ChooseLexiconActivity : AppCompatActivity() {
             binding.lexiconDescription.text = description
 
             binding.lexiconDescription.visibility = if (description != null) View.VISIBLE else View.GONE
-            binding.lexiconIsInBetaSeparator.visibility = if (language.isBeta && description != null) View.VISIBLE else View.GONE
             binding.lexiconIsInBeta.visibility = if (language.isBeta) View.VISIBLE else View.GONE
 
             binding.root.setOnClickListener(listener)
